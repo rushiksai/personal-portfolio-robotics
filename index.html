@@ -294,101 +294,150 @@
 </head>
 <body>
   <section class="projects-section" id="projects-section">
-    <div class="section-card">
-      <div class="projects-section-content">
-        <h2 class="section-title">Projects</h2>
+  <div class="section-card" data-aos="fade-up" data-aos-duration="1000">
+    <div class="projects-section-content">
+      <h2 class="section-title">Projects</h2>
 
-        <div class="projects-subsection">
-          <div class="subsection-header">
-            <span class="subsection-icon"><i data-lucide="cpu"></i></span>
-            <h3 class="subsection-title">Software Robotics</h3>
+      <div class="projects-subsection" data-aos="fade-up">
+        <div class="subsection-header">
+          <span class="subsection-icon"><i data-lucide="cpu"></i></span>
+          <h3 class="subsection-title">Software Robotics</h3>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card" data-aos="zoom-in" data-aos-duration="800">
+            <div class="project-image">
+              <div class="video-responsive">
+              <iframe
+                src="https://www.youtube.com/embed/6ao7w6dNs8w"
+                title="YouTube video player for Autonomous Delivery Robot"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">Autonomous Delivery Robot</h3>
+                <a href="https://github.com/rushiksai/ros-2/tree/main/rpwr-assignments/internship/group5_ws" target="_blank" rel="noopener noreferrer" class="github-icon-link" aria-label="GitHub – Autonomous Delivery Robot">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+              <div class="tools-used">
+                <span class="tool-btn">ROS 2</span>
+                <span class="tool-btn">Python</span>
+                <span class="tool-btn">LiDAR</span>
+                <span class="tool-btn">Gazebo</span>
+                <span class="tool-btn">RViz</span>
+              </div>
+              <p class="project-description">
+                ROS 2 autonomous delivery robot using LiDAR, Gazebo, and obstacle-aware navigation for simulated indoor delivery tasks.
+              </p>
+            </div>
           </div>
 
-          <div class="projects-grid">
-            <article class="project-card">
-              <div class="project-image">
-                <div class="video-responsive">
-                  <iframe
-                    src="https://www.youtube.com/embed/6ao7w6dNs8w"
-                    title="Autonomous Delivery Robot"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen>
-                  </iframe>
-                </div>
+          <div class="project-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+            <div class="project-image">
+              <img src="turtle_bot.png" alt="Turtle Bot Multi-Agent Tracking" />
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">Turtle Bot – Multi-Agent Tracking Simulation</h3>
+                <a href="https://github.com/rushiksai/ros-2/tree/main/rpwr-assignments/03_ros" target="_blank" rel="noopener noreferrer" class="github-icon-link" aria-label="GitHub – Turtle Bot">
+                  <i class="fa-brands fa-github"></i>
+                </a>
               </div>
-
-              <div class="project-content">
-                <div class="project-header">
-                  <h3 class="project-title">Autonomous Delivery Robot</h3>
-                  <a href="https://github.com/rushiksai/ros-2/tree/main/rpwr-assignments/internship/group5_ws" target="_blank" rel="noopener noreferrer" class="github-icon-link" aria-label="GitHub – Autonomous Delivery Robot">GitHub</a>
-                </div>
-
-                <div class="tools-used">
-                  <span class="tool-btn">ROS 2</span>
-                  <span class="tool-btn">Python</span>
-                  <span class="tool-btn">LiDAR</span>
-                  <span class="tool-btn">Gazebo</span>
-                  <span class="tool-btn">RViz</span>
-                </div>
-
-                <p class="project-description">
-                  ROS 2 autonomous delivery robot using LiDAR, Gazebo, and obstacle-aware navigation for simulated indoor delivery tasks.
-                </p>
+              <div class="tools-used">
+                <span class="tool-btn">ROS 2</span>
+                <span class="tool-btn">Turtlesim</span>
+                <span class="tool-btn">Python</span>
+                <span class="tool-btn">tf2_ros</span>
               </div>
-            </article>
+              <p class="project-description">
+                ROS 2 turtlesim project for multi-agent tracking using broadcaster and follower nodes with tf-based coordination.
+              </p>
+            </div>
+          </div>
 
-            <article class="project-card">
-              <div class="project-image">
-                <img src="./CV_C.png" alt="OpenCV project preview" />
+          <div class="project-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">
+            <div class="project-image">
+              <img src="CV_C.png" alt="OpenCV Image Processing" style="object-position: center;" />
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">OpenCV Image Processing</h3>
+                <a href="#" class="github-icon-link" aria-label="GitHub – OpenCV Image Processing">
+                  <i class="fa-brands fa-github"></i>
+                </a>
               </div>
-
-              <div class="project-content">
-                <div class="project-header">
-                  <h3 class="project-title">OpenCV Image Processing</h3>
-                  <a href="#" class="github-icon-link" aria-label="GitHub – OpenCV Image Processing">GitHub</a>
-                </div>
-
-                <div class="tools-used">
-                  <span class="tool-btn">Python</span>
-                  <span class="tool-btn">OpenCV</span>
-                  <span class="tool-btn">NumPy</span>
-                  <span class="tool-btn">Vision</span>
-                </div>
-
-                <p class="project-description">
-                  Image-processing workflows for feature detection, segmentation, and engineering measurement tasks.
-                </p>
+              <div class="tools-used">
+                <span class="tool-btn">Python</span>
+                <span class="tool-btn">OpenCV</span>
+                <span class="tool-btn">NumPy</span>
+                <span class="tool-btn">Computer Vision</span>
               </div>
-            </article>
-
-            <article class="project-card">
-              <div class="project-image">
-                <img src="./Pan_tilt.jpeg" alt="Pan tilt project preview" />
-              </div>
-
-              <div class="project-content">
-                <div class="project-header">
-                  <h3 class="project-title">Pan-Tilt Robotic Head</h3>
-                  <a href="#" class="github-icon-link" aria-label="GitHub – Pan-Tilt Robotic Head">GitHub</a>
-                </div>
-
-                <div class="tools-used">
-                  <span class="tool-btn">ROS 2</span>
-                  <span class="tool-btn">Fusion 360</span>
-                  <span class="tool-btn">Dynamixel</span>
-                </div>
-
-                <p class="project-description">
-                  2-DOF pan-tilt robotic sensor head for gaze estimation and robotic perception experiments.
-                </p>
-              </div>
-            </article>
+              <p class="project-description">
+                OpenCV and Python image-processing workflows for feature detection, segmentation, and engineering measurement tasks.
+              </p>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="projects-subsection cad-subsection">
+  <div class="projects-subsection" data-aos="fade-up">
+  <div class="subsection-header">
+    <span class="subsection-icon"><i data-lucide="wrench"></i></span>
+    <h3 class="subsection-title">Hardware Robotics</h3>
+  </div>
+
+  <div class="projects-grid">
+    <div class="project-card" data-aos="zoom-in" data-aos-duration="800">
+      <div class="project-image">
+        <img src="B.Tech.jpg" alt="Modular Wheelchair" />
+      </div>
+      <div class="project-content">
+        <div class="project-header">
+          <h3 class="project-title">Modular Wheelchair (Hardware &amp; Mechanics)</h3>
+          <a href="#" class="github-icon-link" aria-label="GitHub – Modular Wheelchair">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+        <div class="tools-used">
+          <span class="tool-btn">Arduino</span>
+          <span class="tool-btn">Raspberry Pi</span>
+          <span class="tool-btn">Python</span>
+          <span class="tool-btn">IoT</span>
+        </div>
+        <p class="project-description">
+          Adaptive wheelchair prototype with joystick and voice-control modes designed for progressive patient assistance.
+        </p>
+      </div>
+    </div>
+
+    <div class="project-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="150">
+      <div class="project-image">
+        <img src="Pan_tilt.jpeg" alt="Pan-Tilt Robotic Head for Gaze Estimation" />
+      </div>
+      <div class="project-content">
+        <div class="project-header">
+          <h3 class="project-title">Pan-Tilt Robotic Head for Gaze Estimation</h3>
+          <a href="#" class="github-icon-link" aria-label="GitHub – Pan-Tilt Robotic Head for Gaze Estimation">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+        <div class="tools-used">
+          <span class="tool-btn">ROS 2</span>
+          <span class="tool-btn">Fusion 360</span>
+          <span class="tool-btn">Intel RealSense D455f</span>
+        </div>
+        <p class="project-description">
+          Developed a 2-DOF pan-tilt robotic sensor head for gaze estimation using ROS 2, Fusion 360, Dynamixel actuators, Intel RealSense D455f, and validation in Gazebo and RViz.
+        </p>
+      </div>
+    </div>
+  </div>
+   <div class="projects-subsection cad-subsection">
           <div class="subsection-header">
             <span class="subsection-icon"><i data-lucide="box"></i></span>
             <h3 class="subsection-title">CAD Models</h3>
@@ -468,6 +517,78 @@
                 </div>
               </div>
             </article>
+            <article class="project-card cad-mini-card">
+              <div class="project-image cad-mini-image">
+                <img src="./Camera_mounting_Plate.jpeg" alt="XM430 bracket preview" />
+              </div>
+
+              <div class="project-content cad-mini-content">
+                <div class="project-header">
+                  <h3 class="project-title">XM430 Bracket</h3>
+                </div>
+
+                <div class="tools-used cad-tags">
+                  <span class="tool-btn">Servo</span>
+                  <span class="tool-btn">STEP</span>
+                  <span class="tool-btn">Bracket</span>
+                </div>
+
+                <p class="project-description cad-mini-desc">
+                  Bracket concept for Dynamixel actuator integration.
+                </p>
+
+                <div class="cad-mini-actions">
+                  <button
+                    class="btn cad-mini-btn js-open-cad"
+                    data-title="XM430 Bracket"
+                    data-model="./Motor_Plate_Final.glb"
+                    data-poster="./Camera_mounting_Plate.jpeg"
+                    data-description="Interactive 3D preview of the XM430 bracket."
+                    data-orbit="30deg 75deg 2.4m"
+                    data-fov="28deg">
+                    View CAD
+                  </button>
+
+                  <a href="./Motor_Plate_Final.step" class="btn cad-mini-btn secondary-btn" target="_blank" rel="noopener noreferrer">STEP</a>
+                </div>
+              </div>
+            </article>
+            <article class="project-card cad-mini-card">
+              <div class="project-image cad-mini-image">
+                <img src="./Camera_mounting_Plate.jpeg" alt="XM430 bracket preview" />
+              </div>
+
+              <div class="project-content cad-mini-content">
+                <div class="project-header">
+                  <h3 class="project-title">XM430 Bracket</h3>
+                </div>
+
+                <div class="tools-used cad-tags">
+                  <span class="tool-btn">Servo</span>
+                  <span class="tool-btn">STEP</span>
+                  <span class="tool-btn">Bracket</span>
+                </div>
+
+                <p class="project-description cad-mini-desc">
+                  Bracket concept for Dynamixel actuator integration.
+                </p>
+
+                <div class="cad-mini-actions">
+                  <button
+                    class="btn cad-mini-btn js-open-cad"
+                    data-title="XM430 Bracket"
+                    data-model="./L_extension_New.glb"
+                    data-poster="./Camera_mounting_Plate.jpeg"
+                    data-description="Interactive 3D preview of the XM430 bracket."
+                    data-orbit="30deg 75deg 2.4m"
+                    data-fov="28deg">
+                    View CAD
+                  </button>
+
+                  <a href="./L _extension_New.step" class="btn cad-mini-btn secondary-btn" target="_blank" rel="noopener noreferrer">STEP</a>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -511,6 +632,13 @@
   <script src="./script.js" defer></script>
 </body>
 </html>
+
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</div>
+    </div>
+  </div>
+</section>
+
 <section class="skills-section" id="skills">
   <div class="section-card" data-aos="fade-up" data-aos-duration="1000">
     <div class="skills-section-content">
