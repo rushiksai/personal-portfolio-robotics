@@ -149,3 +149,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+  // --- CAD Modal Viewer ---
+  const cadModal = document.getElementById('cadModal');
+  const cadViewer = document.getElementById('cadViewer');
+  const cadModalTitle = document.getElementById('cadModalTitle');
+  const cadModalDesc = document.getElementById('cadModalDesc');
+  const cadOpenButtons = document.querySelectorAll('.js-open-cad');
+  const cadCloseButtons = document.querySelectorAll('.js-close-cad');
+
+  function openCadModal(button) {
+    const title = button.dataset.title || 'CAD Model';
+    const model = button.dataset.model || '';
+    const poster = button.dataset.poster || '';
+    const description = button.dataset.description || 'Interactive 3D viewer.';
+    const orbit = button.dataset.orbit || '35deg 70deg 2.5m';
+    const fov = button.dataset.fov || '30deg';
+
+    cadModalTitle.textContent = title;
+    cadModalDesc.textContent = description;
+
+    cadViewer.setAttribute('src', model);
+    cadViewer.setAttribute('poster', poster);
+    cadViewer.setAttribute('alt', title);
+    cadViewer.setAttribute('camera-orbit', orbit);
+    cadViewer.setAttribute('field-of-view', fov);
+
+    cadModal.classList.add('active');
+    cadModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCadModal() {
+    cadModal.classList.remove('active');
+    cadModal.setAttribute('aria-hidden', 'true');
+    cadViewer.removeAttribute('src');
+    cadViewer.removeAttribute('poster');
+    document.body.style.overflow = '';
+  }
+
+  cadOpenButtons.forEach(button => {
+    button.addEventListener('click', () => openCadModal(button));
+  });
+
+  cadCloseButtons.forEach(button => {
+    button.addEventListener('click', closeCadModal);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && cadModal.classList.contains('active')) {
+      closeCadModal();
+    }
+  });
