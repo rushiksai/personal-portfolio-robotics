@@ -20,6 +20,12 @@
 <body>
   <nav class="navbar">
     <div class="logo">Rushik Sai Jakka</div>
+
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">En</button>
+      <button class="lang-btn" id="btn-de" onclick="setLang('de')">De</button>
+    </div>
+
     <input type="checkbox" id="nav-toggle" class="nav-toggle" />
     <label for="nav-toggle" class="hamburger">
       <span class="bar"></span>
@@ -28,14 +34,14 @@
     </label>
 
     <ul class="nav-links">
-      <li><a href="#about-section">About Me</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects-section">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#languages">Languages</a></li>
-      <li><a href="#contact">Connect</a></li>
+      <li><a href="#about-section" data-i18n="nav-about">About Me</a></li>
+      <li><a href="#education" data-i18n="nav-education">Education</a></li>
+      <li><a href="#experience" data-i18n="nav-experience">Experience</a></li>
+      <li><a href="#projects-section" data-i18n="nav-projects">Projects</a></li>
+      <li><a href="#skills" data-i18n="nav-skills">Skills</a></li>
+      <li><a href="#certifications" data-i18n="nav-certifications">Certifications</a></li>
+      <li><a href="#languages" data-i18n="nav-languages">Languages</a></li>
+      <li><a href="#contact" data-i18n="nav-contact">Connect</a></li>
     </ul>
   </nav>
 
@@ -47,16 +53,16 @@
         </div>
 
         <div class="hero-content" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-          <p>Hello, I am</p>
+          <p data-i18n="hero-greeting">Hello, I am</p>
           <div class="name">Rushik Sai Jakka</div>
-          <div class="subtitle">Sensors | Robotics | Microsystems</div>
+          <div class="subtitle" data-i18n="hero-subtitle">Sensors | Robotics | Microsystems</div>
 
           <div class="buttons">
             <a href="./Resume_Jakka_ROS.pdf" class="btn" target="_blank" rel="noopener noreferrer">
-              <i data-lucide="download"></i> View Resume
+              <i data-lucide="download"></i> <span data-i18n="hero-resume">View Resume</span>
             </a>
             <a href="#contact" class="btn">
-              <i data-lucide="mail"></i> Contact Information
+              <i data-lucide="mail"></i> <span data-i18n="hero-contact">Contact Information</span>
             </a>
           </div>
 
@@ -75,18 +81,18 @@
 
   <section class="about-section" id="about-section">
     <div class="about-wrapper">
-      <h2 class="section-title">About me: Building Intelligent Robotic Systems</h2>
+      <h2 class="section-title" data-i18n="about-title">About me: Building Intelligent Robotic Systems</h2>
       <div class="about-grid">
         <div class="about-text">
-          <p>
-            I am currently pursuing my Master’s in Control, Microelectronics and Microsystems at the
+          <p data-i18n="about-p1">
+            I am currently pursuing my Master's in Control, Microelectronics and Microsystems at the
             University of Bremen, with a focus on robotics, embedded systems, and computer vision.
           </p>
-          <p>
+          <p data-i18n="about-p2">
             My work combines ROS 2, computer vision, sensor integration, and robotic control systems.
             I enjoy building systems that bridge hardware and intelligent software for real-world automation.
           </p>
-          <p>
+          <p data-i18n="about-p3">
             Currently, I am working on robotic perception and gaze estimation systems involving ROS 2,
             Intel RealSense cameras, and Dynamixel actuators.
           </p>
@@ -95,19 +101,19 @@
         <div class="about-stats">
           <div class="stat-card">
             <span class="stat-number">5+</span>
-            <span class="stat-text">Robotics Projects</span>
+            <span class="stat-text" data-i18n="stat-text-1">Robotics Projects</span>
           </div>
           <div class="stat-card">
             <span class="stat-number">ROS 2</span>
-            <span class="stat-text">Jazzy & Humble</span>
+            <span class="stat-text" data-i18n="stat-text-2">Jazzy &amp; Humble</span>
           </div>
           <div class="stat-card">
             <span class="stat-number">CV</span>
-            <span class="stat-text">OpenCV & Vision</span>
+            <span class="stat-text" data-i18n="stat-text-3">OpenCV &amp; Vision</span>
           </div>
           <div class="stat-card">
             <span class="stat-number">DE</span>
-            <span class="stat-text">Based in Germany</span>
+            <span class="stat-text" data-i18n="stat-text-4">Based in Germany</span>
           </div>
         </div>
       </div>
@@ -116,7 +122,7 @@
 
   <section class="education-section" id="education">
     <div class="education-section-content" data-aos="fade-up">
-      <h2 class="section-title">Education</h2>
+      <h2 class="section-title" data-i18n="edu-title">Education</h2>
 
       <div class="education-grid">
         <div class="edu-card active-edu" data-aos="fade-up">
@@ -125,14 +131,14 @@
               <span>2024 – Present</span>
             </div>
             <div class="edu-info">
-              <h3 class="edu-degree">M.Sc. – Control, Microelectronics & Microsystems</h3>
+              <h3 class="edu-degree" data-i18n="edu-degree-1">M.Sc. – Control, Microelectronics &amp; Microsystems</h3>
               <div class="edu-university">
                 Universität Bremen
                 <span class="edu-location"> · Germany</span>
               </div>
             </div>
           </div>
-          <div class="edu-focus">
+          <div class="edu-focus" data-i18n="edu-focus-1">
             Focus: Robotics, Embedded Systems, Computer Vision,
             Deep Learning Accelerators, Cognitive Robotics
           </div>
@@ -144,14 +150,14 @@
               <span>2019 – 2023</span>
             </div>
             <div class="edu-info">
-              <h3 class="edu-degree">B.Tech – Electronics & Instrumentation Engineering</h3>
+              <h3 class="edu-degree" data-i18n="edu-degree-2">B.Tech – Electronics &amp; Instrumentation Engineering</h3>
               <div class="edu-university">
                 VNRVJIET
                 <span class="edu-location"> · Hyderabad, India</span>
               </div>
             </div>
           </div>
-          <div class="edu-focus">
+          <div class="edu-focus" data-i18n="edu-focus-2">
             Focus: Sensors, Control Systems, Automation,
             Instrumentation Engineering, Embedded Electronics
           </div>
@@ -162,10 +168,10 @@
 
   <section class="experience-section" id="experience">
     <div class="experience-content" data-aos="fade-up">
-      <h2 class="section-title">Experience</h2>
+      <h2 class="section-title" data-i18n="exp-title">Experience</h2>
 
       <div class="exp-group-label" data-aos="fade-up">
-        <i data-lucide="book-open"></i> Current Coursework
+        <i data-lucide="book-open"></i> <span data-i18n="exp-label-coursework">Current Coursework</span>
       </div>
 
       <div class="cv-row coursework-row" data-aos="fade-up">
@@ -175,10 +181,10 @@
         <div class="cv-body-col">
           <div class="cv-card">
             <div class="cv-card-header">
-              <h3 class="cv-role">M.Sc. – Control, Microelectronics &amp; Microsystems</h3>
+              <h3 class="cv-role" data-i18n="exp-role-coursework">M.Sc. – Control, Microelectronics &amp; Microsystems</h3>
               <span class="cv-org">University of Bremen</span>
             </div>
-            <ul class="cv-bullets">
+            <ul class="cv-bullets" data-i18n-html="exp-bullets-coursework">
               <li><strong>Intelligent Systems for Marine Robotics</strong> — Autonomy, sensor fusion, and decision-making for underwater robotic platforms.</li>
               <li><strong>Software Engineering for Cognitive Robotics</strong> — Architecture patterns, ROS-based design, and cognitive system integration.</li>
               <li><strong>Architecture &amp; Design Methodologies for Deep Learning</strong> — Hardware-aware DL model design, accelerator architectures, and deployment pipelines.</li>
@@ -188,7 +194,7 @@
       </div>
 
       <div class="exp-group-label" data-aos="fade-up">
-        <i data-lucide="briefcase"></i> Professional &amp; Research
+        <i data-lucide="briefcase"></i> <span data-i18n="exp-label-professional">Professional &amp; Research</span>
       </div>
 
       <div class="cv-row" data-aos="fade-up">
@@ -200,10 +206,10 @@
           <div class="cv-card hiwi-card">
             <div class="cv-card-glow"></div>
             <div class="cv-card-header">
-              <h3 class="cv-role">Student Assistant – Computer Vision Engineer</h3>
+              <h3 class="cv-role" data-i18n="exp-role-hiwi">Student Assistant – Computer Vision Engineer</h3>
               <span class="cv-org">BIMAQ · University of Bremen</span>
             </div>
-            <ul class="cv-bullets">
+            <ul class="cv-bullets" data-i18n-html="exp-bullets-hiwi">
               <li><strong>Sensor Test Campaigns:</strong> Support preparation and execution of optical sensor measurement tasks; perform structured documentation and verification of findings.</li>
               <li><strong>Data Acquisition &amp; Calibration:</strong> Design and validate camera calibration workflows for accurate spatial mapping and reproducible data logging.</li>
               <li><strong>Algorithm Implementation:</strong> Implement subpixel-level edge detection to improve precision in vision-based measurement systems.</li>
@@ -224,15 +230,15 @@
       <div class="cv-row" data-aos="fade-up" data-aos-delay="100">
         <div class="cv-date-col">
           <span class="cv-date-badge">11/2025 – Present</span>
-          <span class="cv-type-chip">Master Project</span>
+          <span class="cv-type-chip" data-i18n="chip-masterprojekt">Master Project</span>
         </div>
         <div class="cv-body-col">
           <div class="cv-card">
             <div class="cv-card-header">
-              <h3 class="cv-role">Pan-Tilt Robotic Head for Gaze Estimation</h3>
+              <h3 class="cv-role" data-i18n="exp-role-pantilt">Pan-Tilt Robotic Head for Gaze Estimation</h3>
               <span class="cv-org">Dept. 03 Mathematics &amp; Informatics · University of Bremen</span>
             </div>
-            <ul class="cv-bullets">
+            <ul class="cv-bullets" data-i18n-html="exp-bullets-pantilt">
               <li><strong>Robot Programming:</strong> Programming a 2-DOF pan-tilt robotic sensor head using ROS 2 nodes for real-time sensor processing, coordinate transformations, and actuation control.</li>
               <li><strong>Mechanical Design:</strong> Designing and modelling platform components in Fusion 360 for iterative prototyping and part fabrication.</li>
               <li><strong>Hardware Assembly:</strong> Assembling and configuring the 2-DOF platform with Dynamixel XM430-W350-R servo actuators and integrating all electrical connections.</li>
@@ -253,21 +259,21 @@
       </div>
 
       <div class="exp-group-label" data-aos="fade-up">
-        <i data-lucide="users"></i> Volunteer &amp; Leadership
+        <i data-lucide="users"></i> <span data-i18n="exp-label-volunteer">Volunteer &amp; Leadership</span>
       </div>
 
       <div class="cv-row" data-aos="fade-up">
         <div class="cv-date-col">
           <span class="cv-date-badge">08/2022 – 08/2023</span>
-          <span class="cv-type-chip">Volunteer</span>
+          <span class="cv-type-chip" data-i18n="chip-volunteer">Volunteer</span>
         </div>
         <div class="cv-body-col">
           <div class="cv-card">
             <div class="cv-card-header">
-              <h3 class="cv-role">Student Branch Chair – IEEE</h3>
+              <h3 class="cv-role" data-i18n="exp-role-ieee">Student Branch Chair – IEEE</h3>
               <span class="cv-org">VNRVJIET · Hyderabad, India</span>
             </div>
-            <ul class="cv-bullets">
+            <ul class="cv-bullets" data-i18n-html="exp-bullets-ieee">
               <li><strong>Interdisciplinary Leadership:</strong> Led technical symposiums and international conferences (ICMACC'22); coordinated between engineering departments.</li>
               <li><strong>Strategic Initiative:</strong> Founded the IEEE Robotics &amp; Automation Society (RAS) chapter, managing recruitment and technical roadmaps.</li>
             </ul>
@@ -280,12 +286,12 @@
   <section class="projects-section" id="projects-section">
     <div class="section-card" data-aos="fade-up" data-aos-duration="1000">
       <div class="projects-section-content">
-        <h2 class="section-title">Projects</h2>
+        <h2 class="section-title" data-i18n="proj-title">Projects</h2>
 
         <div class="projects-subsection" data-aos="fade-up">
           <div class="subsection-header">
             <span class="subsection-icon"><i data-lucide="cpu"></i></span>
-            <h3 class="subsection-title">Software Robotics</h3>
+            <h3 class="subsection-title" data-i18n="proj-label-software">Software Robotics</h3>
           </div>
 
           <div class="projects-grid">
@@ -305,7 +311,7 @@
 
               <div class="project-content">
                 <div class="project-header">
-                  <h3 class="project-title">Autonomous Delivery Robot</h3>
+                  <h3 class="project-title" data-i18n="proj-title-delivery">Autonomous Delivery Robot</h3>
                   <a href="https://github.com/rushiksai/ros-2/tree/main/rpwr-assignments/internship/group5_ws" target="_blank" rel="noopener noreferrer" class="github-icon-link" aria-label="GitHub – Autonomous Delivery Robot">
                     <i class="fa-brands fa-github"></i>
                   </a>
@@ -317,7 +323,7 @@
                   <span class="tool-btn">Gazebo</span>
                   <span class="tool-btn">RViz</span>
                 </div>
-                <p class="project-description">
+                <p class="project-description" data-i18n="proj-desc-delivery">
                   ROS 2 autonomous delivery robot using LiDAR, Gazebo, and obstacle-aware navigation for simulated indoor delivery tasks.
                 </p>
               </div>
@@ -329,7 +335,7 @@
               </div>
               <div class="project-content">
                 <div class="project-header">
-                  <h3 class="project-title">Turtle Bot – Multi-Agent Tracking Simulation</h3>
+                  <h3 class="project-title" data-i18n="proj-title-turtlebot">Turtle Bot – Multi-Agent Tracking Simulation</h3>
                   <a href="https://github.com/rushiksai/ros-2/tree/main/rpwr-assignments/03_ros" target="_blank" rel="noopener noreferrer" class="github-icon-link" aria-label="GitHub – Turtle Bot">
                     <i class="fa-brands fa-github"></i>
                   </a>
@@ -340,7 +346,7 @@
                   <span class="tool-btn">Python</span>
                   <span class="tool-btn">tf2_ros</span>
                 </div>
-                <p class="project-description">
+                <p class="project-description" data-i18n="proj-desc-turtlebot">
                   ROS 2 turtlesim project for multi-agent tracking using broadcaster and follower nodes with tf-based coordination.
                 </p>
               </div>
@@ -352,7 +358,7 @@
               </div>
               <div class="project-content">
                 <div class="project-header">
-                  <h3 class="project-title">OpenCV Image Processing</h3>
+                  <h3 class="project-title" data-i18n="proj-title-opencv">OpenCV Image Processing</h3>
                   <a href="#" class="github-icon-link" aria-label="GitHub – OpenCV Image Processing">
                     <i class="fa-brands fa-github"></i>
                   </a>
@@ -363,7 +369,7 @@
                   <span class="tool-btn">NumPy</span>
                   <span class="tool-btn">Computer Vision</span>
                 </div>
-                <p class="project-description">
+                <p class="project-description" data-i18n="proj-desc-opencv">
                   OpenCV and Python image-processing workflows for feature detection, segmentation, and engineering measurement tasks.
                 </p>
               </div>
@@ -374,7 +380,7 @@
         <div class="projects-subsection" data-aos="fade-up">
           <div class="subsection-header">
             <span class="subsection-icon"><i data-lucide="wrench"></i></span>
-            <h3 class="subsection-title">Hardware Robotics</h3>
+            <h3 class="subsection-title" data-i18n="proj-label-hardware">Hardware Robotics</h3>
           </div>
 
           <div class="projects-grid hardware-grid">
@@ -384,7 +390,7 @@
               </div>
               <div class="project-content">
                 <div class="project-header">
-                  <h3 class="project-title">Modular Wheelchair (Hardware &amp; Mechanics)</h3>
+                  <h3 class="project-title" data-i18n="proj-title-wheelchair">Modular Wheelchair (Hardware &amp; Mechanics)</h3>
                   <a href="#" class="github-icon-link" aria-label="GitHub – Modular Wheelchair">
                     <i class="fa-brands fa-github"></i>
                   </a>
@@ -395,7 +401,7 @@
                   <span class="tool-btn">Python</span>
                   <span class="tool-btn">IoT</span>
                 </div>
-                <p class="project-description">
+                <p class="project-description" data-i18n="proj-desc-wheelchair">
                   Adaptive wheelchair prototype with joystick and voice-control modes designed for progressive patient assistance.
                 </p>
               </div>
@@ -407,7 +413,7 @@
               </div>
               <div class="project-content">
                 <div class="project-header">
-                  <h3 class="project-title">Pan-Tilt Robotic Head for Gaze Estimation</h3>
+                  <h3 class="project-title" data-i18n="proj-title-pantilt">Pan-Tilt Robotic Head for Gaze Estimation</h3>
                   <a href="#" class="github-icon-link" aria-label="GitHub – Pan-Tilt Robotic Head for Gaze Estimation">
                     <i class="fa-brands fa-github"></i>
                   </a>
@@ -417,7 +423,7 @@
                   <span class="tool-btn">Fusion 360</span>
                   <span class="tool-btn">Intel RealSense D455f</span>
                 </div>
-                <p class="project-description">
+                <p class="project-description" data-i18n="proj-desc-pantilt">
                   Developed a 2-DOF pan-tilt robotic sensor head for gaze estimation using ROS 2, Fusion 360, Dynamixel actuators, Intel RealSense D455f, and validation in Gazebo and RViz.
                 </p>
               </div>
@@ -428,7 +434,7 @@
         <div class="projects-subsection cad-subsection" data-aos="fade-up">
           <div class="subsection-header">
             <span class="subsection-icon"><i data-lucide="box"></i></span>
-            <h3 class="subsection-title">CAD Models</h3>
+            <h3 class="subsection-title" data-i18n="proj-label-cad">CAD Models</h3>
           </div>
 
           <div class="projects-grid cad-mini-grid">
@@ -439,7 +445,7 @@
 
               <div class="project-content cad-mini-content">
                 <div class="project-header">
-                  <h3 class="project-title">T Plate Mount</h3>
+                  <h3 class="project-title" data-i18n="cad-title-tplate">T Plate Mount</h3>
                 </div>
 
                 <div class="tools-used cad-tags">
@@ -448,7 +454,7 @@
                   <span class="tool-btn">Mount</span>
                 </div>
 
-                <p class="project-description cad-mini-desc">
+                <p class="project-description cad-mini-desc" data-i18n="cad-desc-tplate">
                   Compact actuator support plate for robotic mounting.
                 </p>
 
@@ -456,12 +462,14 @@
                   <button
                     class="btn cad-mini-btn js-open-cad"
                     data-title="T Plate Mount"
+                    data-title-de="T-Platte Halterung"
                     data-model="./T_plate.glb"
                     data-poster="./T_plate_preview.jpeg"
                     data-description="Interactive 3D view of the T plate mount."
+                    data-description-de="Interaktive 3D-Ansicht der T-Platte."
                     data-orbit="35deg 70deg 2.6m"
                     data-fov="30deg">
-                    View CAD
+                    <span data-i18n="cad-btn-view">View CAD</span>
                   </button>
 
                   <a href="./T_plate.step" class="btn cad-mini-btn secondary-btn" target="_blank" rel="noopener noreferrer">STEP</a>
@@ -476,7 +484,7 @@
 
               <div class="project-content cad-mini-content">
                 <div class="project-header">
-                  <h3 class="project-title">XM430 Bracket</h3>
+                  <h3 class="project-title" data-i18n="cad-title-xm430">XM430 Bracket</h3>
                 </div>
 
                 <div class="tools-used cad-tags">
@@ -485,7 +493,7 @@
                   <span class="tool-btn">Bracket</span>
                 </div>
 
-                <p class="project-description cad-mini-desc">
+                <p class="project-description cad-mini-desc" data-i18n="cad-desc-xm430">
                   Bracket concept for Dynamixel actuator integration.
                 </p>
 
@@ -493,12 +501,14 @@
                   <button
                     class="btn cad-mini-btn js-open-cad"
                     data-title="XM430 Bracket"
+                    data-title-de="XM430 Halterung"
                     data-model="./Camera2Ubracket_V2.glb"
                     data-poster="./Camera_mounting_Plate.jpeg"
                     data-description="Interactive 3D preview of the XM430 bracket."
+                    data-description-de="Interaktive 3D-Vorschau der XM430-Halterung."
                     data-orbit="30deg 75deg 2.4m"
                     data-fov="28deg">
-                    View CAD
+                    <span data-i18n="cad-btn-view">View CAD</span>
                   </button>
 
                   <a href="./Camera2Ubracket_V2.step" class="btn cad-mini-btn secondary-btn" target="_blank" rel="noopener noreferrer">STEP</a>
@@ -513,7 +523,7 @@
 
               <div class="project-content cad-mini-content">
                 <div class="project-header">
-                  <h3 class="project-title">Motor Plate Final</h3>
+                  <h3 class="project-title" data-i18n="cad-title-motorplate">Motor Plate Final</h3>
                 </div>
 
                 <div class="tools-used cad-tags">
@@ -522,7 +532,7 @@
                   <span class="tool-btn">Plate</span>
                 </div>
 
-                <p class="project-description cad-mini-desc">
+                <p class="project-description cad-mini-desc" data-i18n="cad-desc-motorplate">
                   Finalized motor support plate for actuator-side mounting and alignment.
                 </p>
 
@@ -530,12 +540,14 @@
                   <button
                     class="btn cad-mini-btn js-open-cad"
                     data-title="Motor Plate Final"
+                    data-title-de="Motorplatte Final"
                     data-model="./Motor_Plate_Final.glb"
                     data-poster="./Motor_Plate_Final_V5.jpeg"
                     data-description="Interactive 3D preview of the motor plate."
+                    data-description-de="Interaktive 3D-Vorschau der Motorplatte."
                     data-orbit="30deg 75deg 2.4m"
                     data-fov="28deg">
-                    View CAD
+                    <span data-i18n="cad-btn-view">View CAD</span>
                   </button>
 
                   <a href="./Motor_Plate_Final.step" class="btn cad-mini-btn secondary-btn" target="_blank" rel="noopener noreferrer">STEP</a>
@@ -550,7 +562,7 @@
 
               <div class="project-content cad-mini-content">
                 <div class="project-header">
-                  <h3 class="project-title">L Extension</h3>
+                  <h3 class="project-title" data-i18n="cad-title-lext">L Extension</h3>
                 </div>
 
                 <div class="tools-used cad-tags">
@@ -559,7 +571,7 @@
                   <span class="tool-btn">Extension</span>
                 </div>
 
-                <p class="project-description cad-mini-desc">
+                <p class="project-description cad-mini-desc" data-i18n="cad-desc-lext">
                   L-shaped extension bracket for robotic frame connection and modular mounting.
                 </p>
 
@@ -567,12 +579,14 @@
                   <button
                     class="btn cad-mini-btn js-open-cad"
                     data-title="L Extension"
+                    data-title-de="L-Verlängerung"
                     data-model="./L_extension_New.glb"
                     data-poster="./L_extension_New.jpeg"
                     data-description="Interactive 3D preview of the L extension bracket."
+                    data-description-de="Interaktive 3D-Vorschau der L-Verlängerungshalterung."
                     data-orbit="30deg 75deg 2.4m"
                     data-fov="28deg">
-                    View CAD
+                    <span data-i18n="cad-btn-view">View CAD</span>
                   </button>
 
                   <a href="./L_extension_New.step" class="btn cad-mini-btn secondary-btn" target="_blank" rel="noopener noreferrer">STEP</a>
@@ -622,13 +636,13 @@
   <section class="skills-section" id="skills">
     <div class="section-card" data-aos="fade-up" data-aos-duration="1000">
       <div class="skills-section-content">
-        <h2 class="section-title">Skills</h2>
+        <h2 class="section-title" data-i18n="skills-title">Skills</h2>
 
         <div class="skills-grid">
           <div class="skill-category-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
             <div class="category-title">
               <i data-lucide="bot"></i>
-              <h3>Robotics &amp; ROS</h3>
+              <h3 data-i18n="skill-cat-1">Robotics &amp; ROS</h3>
             </div>
             <div class="tools-list">
               <span class="tool-btn">ROS 2</span>
@@ -644,7 +658,7 @@
           <div class="skill-category-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
             <div class="category-title">
               <i data-lucide="eye"></i>
-              <h3>Computer Vision &amp; AI</h3>
+              <h3 data-i18n="skill-cat-2">Computer Vision &amp; AI</h3>
             </div>
             <div class="tools-list">
               <span class="tool-btn">OpenCV</span>
@@ -659,7 +673,7 @@
           <div class="skill-category-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
             <div class="category-title">
               <i data-lucide="code"></i>
-              <h3>Programming</h3>
+              <h3 data-i18n="skill-cat-3">Programming</h3>
             </div>
             <div class="tools-list">
               <span class="tool-btn">Python</span>
@@ -683,34 +697,34 @@
 
   <section class="languages-section" id="languages">
     <div class="languages-wrapper">
-      <div class="section-label">LANGUAGES</div>
+      <div class="section-label" data-i18n="lang-label">LANGUAGES</div>
       <div class="languages-grid-minimal">
         <div class="language-min-card">
           <span class="lang-flag">🇬🇧</span>
           <div>
-            <h3>English</h3>
-            <p>B2 — Professional</p>
+            <h3 data-i18n="lang-en">English</h3>
+            <p data-i18n="lang-en-level">B2 — Professional</p>
           </div>
         </div>
         <div class="language-min-card">
           <span class="lang-flag">🇩🇪</span>
           <div>
-            <h3>German</h3>
-            <p>B1 — Intermediate</p>
+            <h3 data-i18n="lang-de">German</h3>
+            <p data-i18n="lang-de-level">B1 — Intermediate</p>
           </div>
         </div>
         <div class="language-min-card">
           <span class="lang-flag">🇮🇳</span>
           <div>
-            <h3>Telugu</h3>
-            <p>Native</p>
+            <h3 data-i18n="lang-te">Telugu</h3>
+            <p data-i18n="lang-te-level">Native</p>
           </div>
         </div>
         <div class="language-min-card">
           <span class="lang-flag">🇮🇳</span>
           <div>
-            <h3>Hindi</h3>
-            <p>A1 — Basic</p>
+            <h3 data-i18n="lang-hi">Hindi</h3>
+            <p data-i18n="lang-hi-level">A1 — Basic</p>
           </div>
         </div>
       </div>
@@ -720,7 +734,7 @@
   <section class="connect-section" id="contact">
     <div class="section-card" data-aos="fade-up" data-aos-duration="1000">
       <div class="connect-content">
-        <h2 class="section-title">Connect</h2>
+        <h2 class="section-title" data-i18n="connect-title">Connect</h2>
 
         <div class="contact-row">
           <a href="https://linkedin.com/in/rushiksaijakka" target="_blank" rel="noopener noreferrer" class="contact-inline-link">
