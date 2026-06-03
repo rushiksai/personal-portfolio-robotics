@@ -21,8 +21,7 @@ function initApp() {
   function smoothScrollTo(targetElement, duration = 800) {
     const navbar = document.querySelector('.navbar');
     const navHeight = navbar ? navbar.offsetHeight : 80;
-    const targetY =
-      targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+    const targetY = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
     const startY = window.pageYOffset;
     const distance = targetY - startY;
     let startTime = null;
@@ -37,6 +36,7 @@ function initApp() {
     function step(currentTime) {
       if (!startTime) startTime = currentTime;
       const elapsed = currentTime - startTime;
+
       window.scrollTo(0, easeInOutQuad(elapsed, startY, distance, duration));
 
       if (elapsed < duration) {
@@ -56,7 +56,7 @@ function initApp() {
   refreshLucide();
 
   // =========================================================
-  // SMOOTH SCROLL
+  // SMOOTH SCROLL FOR HASH LINKS
   // =========================================================
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -96,10 +96,11 @@ function initApp() {
 
   if (!backToTopBtn) {
     backToTopBtn = document.createElement('button');
-    backToTopBtn.innerHTML = '<i data-lucide="arrow-up"></i>';
     backToTopBtn.id = 'backToTop';
     backToTopBtn.type = 'button';
     backToTopBtn.setAttribute('aria-label', 'Back to top');
+    backToTopBtn.innerHTML = '<i data-lucide="arrow-up"></i>';
+
     backToTopBtn.style.cssText = `
       display: none;
       position: fixed;
@@ -119,6 +120,7 @@ function initApp() {
       opacity: 0;
       transition: opacity 0.3s ease, transform 0.2s ease;
     `;
+
     document.body.appendChild(backToTopBtn);
     refreshLucide(backToTopBtn);
   }
@@ -213,11 +215,7 @@ function initApp() {
       const titleKey = lang === 'de' ? 'data-title-de' : 'data-title';
       const descKey = lang === 'de' ? 'data-description-de' : 'data-description';
 
-      const title =
-        button.getAttribute(titleKey) ||
-        button.dataset.title ||
-        'CAD Model';
-
+      const title = button.getAttribute(titleKey) || button.dataset.title || 'CAD Model';
       const model = button.dataset.model || '';
       const poster = button.dataset.poster || '';
       const description =
@@ -231,8 +229,7 @@ function initApp() {
       cadModalDesc.textContent = description;
 
       if (cadStatus) {
-        cadStatus.textContent =
-          lang === 'de' ? `Lade: ${model}` : `Loading: ${model}`;
+        cadStatus.textContent = lang === 'de' ? `Lade: ${model}` : `Loading: ${model}`;
       }
 
       cadViewer.removeAttribute('src');
@@ -287,8 +284,6 @@ function initApp() {
 
     cadViewer.addEventListener('load', () => {
       const currentSrc = cadViewer.getAttribute('src') || '';
-      console.log('CAD model loaded:', currentSrc);
-
       if (cadStatus) {
         cadStatus.textContent =
           document.documentElement.lang === 'de'
@@ -499,14 +494,10 @@ function initApp() {
     }
   };
 
-  let currentLang = 'en';
-
-  window.setLang = function (lang) {
+  function setLang(lang) {
     if (!translations[lang]) return;
 
-    currentLang = lang;
     document.documentElement.lang = lang;
-
     const t = translations[lang];
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -532,18 +523,33 @@ function initApp() {
     }
 
     refreshLucide();
-  };
+  }
 
-  // Optional: auto-apply current HTML lang if already set
+  // expose globally only if you still want manual console use
+  window.setLang = setLang;
+
+  // bind buttons directly in JS
+  const btnEn = document.getElementById('btn-en');
+  const btnDe = document.getElementById('btn-de');
+
+  if (btnEn) {
+    btnEn.addEventListener('click', () => setLang('en'));
+  }
+
+  if (btnDe) {
+    btnDe.addEventListener('click', () => setLang('de'));
+  }
+
+  // initial language
   const initialLang =
     document.documentElement.lang && translations[document.documentElement.lang]
       ? document.documentElement.lang
       : 'en';
 
-  window.setLang(initialLang);
+  setLang(initialLang);
 }
 
-// Reliable init pattern
+// Safe init
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initApp);
 } else {
