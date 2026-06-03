@@ -169,10 +169,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (cadModal && cadViewer && cadModalTitle && cadModalDesc) {
     function openCadModal(button) {
-      const title = button.dataset.title || 'CAD Model';
+      const lang = document.documentElement.lang || 'en';
+      const titleKey = lang === 'de' ? 'data-title-de' : 'data-title';
+      const descKey = lang === 'de' ? 'data-description-de' : 'data-description';
+
+      const title = button.getAttribute(titleKey) || button.dataset.title || 'CAD Model';
       const model = button.dataset.model || '';
       const poster = button.dataset.poster || '';
-      const description = button.dataset.description || 'Interactive 3D viewer.';
+      const description = button.getAttribute(descKey) || button.dataset.description || 'Interactive 3D viewer.';
       const orbit = button.dataset.orbit || '35deg 70deg 2.5m';
       const fov = button.dataset.fov || '30deg';
 
@@ -248,4 +252,226 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  /* =========================================================
+     LANGUAGE SWITCHER
+  ========================================================= */
+
+  const translations = {
+    en: {
+      'nav-about': 'About Me',
+      'nav-education': 'Education',
+      'nav-experience': 'Experience',
+      'nav-projects': 'Projects',
+      'nav-skills': 'Skills',
+      'nav-certifications': 'Certifications',
+      'nav-languages': 'Languages',
+      'nav-contact': 'Connect',
+
+      'hero-greeting': 'Hello, I am',
+      'hero-subtitle': 'Sensors | Robotics | Microsystems',
+      'hero-resume': 'View Resume',
+      'hero-contact': 'Contact Information',
+
+      'about-title': 'About me: Building Intelligent Robotic Systems',
+      'about-p1': "I am currently pursuing my Master's in Control, Microelectronics and Microsystems at the University of Bremen, with a focus on robotics, embedded systems, and computer vision.",
+      'about-p2': 'My work combines ROS 2, computer vision, sensor integration, and robotic control systems. I enjoy building systems that bridge hardware and intelligent software for real-world automation.',
+      'about-p3': 'Currently, I am working on robotic perception and gaze estimation systems involving ROS 2, Intel RealSense cameras, and Dynamixel actuators.',
+      'stat-text-1': 'Robotics Projects',
+      'stat-text-2': 'Jazzy & Humble',
+      'stat-text-3': 'OpenCV & Vision',
+      'stat-text-4': 'Based in Germany',
+
+      'edu-title': 'Education',
+      'edu-degree-1': 'M.Sc. \u2013 Control, Microelectronics & Microsystems',
+      'edu-focus-1': 'Focus: Robotics, Embedded Systems, Computer Vision, Deep Learning Accelerators, Cognitive Robotics',
+      'edu-degree-2': 'B.Tech \u2013 Electronics & Instrumentation Engineering',
+      'edu-focus-2': 'Focus: Sensors, Control Systems, Automation, Instrumentation Engineering, Embedded Electronics',
+
+      'exp-title': 'Experience',
+      'exp-label-coursework': 'Current Coursework',
+      'exp-label-professional': 'Professional & Research',
+      'exp-label-volunteer': 'Volunteer & Leadership',
+      'chip-masterprojekt': 'Master Project',
+      'chip-volunteer': 'Volunteer',
+
+      'exp-role-coursework': 'M.Sc. \u2013 Control, Microelectronics & Microsystems',
+      'exp-bullets-coursework': '<li><strong>Intelligent Systems for Marine Robotics</strong> \u2014 Autonomy, sensor fusion, and decision-making for underwater robotic platforms.</li><li><strong>Software Engineering for Cognitive Robotics</strong> \u2014 Architecture patterns, ROS-based design, and cognitive system integration.</li><li><strong>Architecture &amp; Design Methodologies for Deep Learning</strong> \u2014 Hardware-aware DL model design, accelerator architectures, and deployment pipelines.</li>',
+
+      'exp-role-hiwi': 'Student Assistant \u2013 Computer Vision Engineer',
+      'exp-bullets-hiwi': '<li><strong>Sensor Test Campaigns:</strong> Support preparation and execution of optical sensor measurement tasks; perform structured documentation and verification of findings.</li><li><strong>Data Acquisition &amp; Calibration:</strong> Design and validate camera calibration workflows for accurate spatial mapping and reproducible data logging.</li><li><strong>Algorithm Implementation:</strong> Implement subpixel-level edge detection to improve precision in vision-based measurement systems.</li><li><strong>Technical Troubleshooting:</strong> Evaluate robustness of vision algorithms through controlled lab experiments and systematic debugging of sensor setups.</li>',
+
+      'exp-role-pantilt': 'Pan-Tilt Robotic Head for Gaze Estimation',
+      'exp-bullets-pantilt': '<li><strong>Robot Programming:</strong> Programming a 2-DOF pan-tilt robotic sensor head using ROS 2 nodes for real-time sensor processing, coordinate transformations, and actuation control.</li><li><strong>Mechanical Design:</strong> Designing and modelling platform components in Fusion 360 for iterative prototyping and part fabrication.</li><li><strong>Hardware Assembly:</strong> Assembling and configuring the 2-DOF platform with Dynamixel XM430-W350-R servo actuators and integrating all electrical connections.</li><li><strong>Sensor Integration:</strong> Integrating the Intel RealSense D455f depth camera for real-time RGB-D data acquisition within the ROS 2 ecosystem.</li><li><strong>Simulation &amp; Visualisation:</strong> Simulated and validated platform behaviour in Gazebo; monitored real-time joint states and TF transforms in RViz prior to physical deployment.</li>',
+
+      'exp-role-ieee': 'Student Branch Chair \u2013 IEEE',
+      'exp-bullets-ieee': "<li><strong>Interdisciplinary Leadership:</strong> Led technical symposiums and international conferences (ICMACC'22); coordinated between engineering departments.</li><li><strong>Strategic Initiative:</strong> Founded the IEEE Robotics &amp; Automation Society (RAS) chapter, managing recruitment and technical roadmaps.</li>",
+
+      'proj-title': 'Projects',
+      'proj-label-software': 'Software Robotics',
+      'proj-label-hardware': 'Hardware Robotics',
+      'proj-label-cad': 'CAD Models',
+      'proj-title-delivery': 'Autonomous Delivery Robot',
+      'proj-desc-delivery': 'ROS 2 autonomous delivery robot using LiDAR, Gazebo, and obstacle-aware navigation for simulated indoor delivery tasks.',
+      'proj-title-turtlebot': 'Turtle Bot \u2013 Multi-Agent Tracking Simulation',
+      'proj-desc-turtlebot': 'ROS 2 turtlesim project for multi-agent tracking using broadcaster and follower nodes with tf-based coordination.',
+      'proj-title-opencv': 'OpenCV Image Processing',
+      'proj-desc-opencv': 'OpenCV and Python image-processing workflows for feature detection, segmentation, and engineering measurement tasks.',
+      'proj-title-wheelchair': 'Modular Wheelchair (Hardware & Mechanics)',
+      'proj-desc-wheelchair': 'Adaptive wheelchair prototype with joystick and voice-control modes designed for progressive patient assistance.',
+      'proj-title-pantilt': 'Pan-Tilt Robotic Head for Gaze Estimation',
+      'proj-desc-pantilt': 'Developed a 2-DOF pan-tilt robotic sensor head for gaze estimation using ROS 2, Fusion 360, Dynamixel actuators, Intel RealSense D455f, and validation in Gazebo and RViz.',
+
+      'cad-title-tplate': 'T Plate Mount',
+      'cad-desc-tplate': 'Compact actuator support plate for robotic mounting.',
+      'cad-title-xm430': 'XM430 Bracket',
+      'cad-desc-xm430': 'Bracket concept for Dynamixel actuator integration.',
+      'cad-title-motorplate': 'Motor Plate Final',
+      'cad-desc-motorplate': 'Finalized motor support plate for actuator-side mounting and alignment.',
+      'cad-title-lext': 'L Extension',
+      'cad-desc-lext': 'L-shaped extension bracket for robotic frame connection and modular mounting.',
+      'cad-btn-view': 'View CAD',
+
+      'skills-title': 'Skills',
+      'skill-cat-1': 'Robotics & ROS',
+      'skill-cat-2': 'Computer Vision & AI',
+      'skill-cat-3': 'Programming',
+
+      'lang-label': 'LANGUAGES',
+      'lang-en': 'English',
+      'lang-en-level': 'B2 \u2014 Professional',
+      'lang-de': 'German',
+      'lang-de-level': 'B1 \u2014 Intermediate',
+      'lang-te': 'Telugu',
+      'lang-te-level': 'Native',
+      'lang-hi': 'Hindi',
+      'lang-hi-level': 'A1 \u2014 Basic',
+
+      'connect-title': 'Connect',
+    },
+
+    de: {
+      'nav-about': '\u00DCber mich',
+      'nav-education': 'Ausbildung',
+      'nav-experience': 'Erfahrung',
+      'nav-projects': 'Projekte',
+      'nav-skills': 'F\u00E4higkeiten',
+      'nav-certifications': 'Zertifikate',
+      'nav-languages': 'Sprachen',
+      'nav-contact': 'Kontakt',
+
+      'hero-greeting': 'Hallo, ich bin',
+      'hero-subtitle': 'Sensoren | Robotik | Mikrosysteme',
+      'hero-resume': 'Lebenslauf ansehen',
+      'hero-contact': 'Kontaktinformationen',
+
+      'about-title': '\u00DCber mich: Intelligente Robotersysteme entwickeln',
+      'about-p1': 'Ich studiere derzeit meinen Master in Regelungstechnik, Mikroelektronik und Mikrosysteme an der Universit\u00E4t Bremen mit Schwerpunkt Robotik, eingebettete Systeme und Computer Vision.',
+      'about-p2': 'Meine Arbeit verbindet ROS 2, Computer Vision, Sensorintegration und robotische Steuerungssysteme. Ich entwickle gerne Systeme, die Hardware und intelligente Software f\u00FCr die reale Automatisierung verbinden.',
+      'about-p3': 'Derzeit arbeite ich an Systemen zur robotischen Wahrnehmung und Blicksch\u00E4tzung mit ROS 2, Intel RealSense-Kameras und Dynamixel-Aktuatoren.',
+      'stat-text-1': 'Robotik-Projekte',
+      'stat-text-2': 'Jazzy & Humble',
+      'stat-text-3': 'OpenCV & Vision',
+      'stat-text-4': 'In Deutschland',
+
+      'edu-title': 'Ausbildung',
+      'edu-degree-1': 'M.Sc. \u2013 Regelungstechnik, Mikroelektronik & Mikrosysteme',
+      'edu-focus-1': 'Schwerpunkt: Robotik, Eingebettete Systeme, Computer Vision, Deep-Learning-Beschleuniger, Kognitive Robotik',
+      'edu-degree-2': 'B.Tech \u2013 Elektronik & Messtechnik',
+      'edu-focus-2': 'Schwerpunkt: Sensoren, Steuerungssysteme, Automatisierung, Messtechnik, Eingebettete Elektronik',
+
+      'exp-title': 'Erfahrung',
+      'exp-label-coursework': 'Aktuelles Studium',
+      'exp-label-professional': 'Beruflich & Forschung',
+      'exp-label-volunteer': 'Ehrenamt & F\u00FChrung',
+      'chip-masterprojekt': 'Masterprojekt',
+      'chip-volunteer': 'Ehrenamt',
+
+      'exp-role-coursework': 'M.Sc. \u2013 Regelungstechnik, Mikroelektronik & Mikrosysteme',
+      'exp-bullets-coursework': '<li><strong>Intelligente Systeme f\u00FCr die Marine-Robotik</strong> \u2014 Autonomie, Sensorfusion und Entscheidungsfindung f\u00FCr Unterwasser-Robotikplattformen.</li><li><strong>Software Engineering f\u00FCr Kognitive Robotik</strong> \u2014 Architekturmuster, ROS-basiertes Design und Integration kognitiver Systeme.</li><li><strong>Architektur &amp; Designmethoden f\u00FCr Deep Learning</strong> \u2014 Hardware-orientiertes DL-Modelldesign, Beschleunigerarchitekturen und Deployment-Pipelines.</li>',
+
+      'exp-role-hiwi': 'Studentische Hilfskraft \u2013 Computer Vision Ingenieur',
+      'exp-bullets-hiwi': '<li><strong>Sensortestkampagnen:</strong> Unterst\u00FCtzung bei Vorbereitung und Durchf\u00FChrung optischer Sensormessaufgaben; strukturierte Dokumentation und Verifizierung der Ergebnisse.</li><li><strong>Datenerfassung &amp; Kalibrierung:</strong> Entwurf und Validierung von Kamerakalibrierungs-Workflows f\u00FCr pr\u00E4zise r\u00E4umliche Kartierung und reproduzierbare Datenprotokollierung.</li><li><strong>Algorithmusimplementierung:</strong> Implementierung von Subpixel-Kantendetektion zur Verbesserung der Pr\u00E4zision in sichtbasierten Messsystemen.</li><li><strong>Technische Fehlerbehebung:</strong> Bewertung der Robustheit von Vision-Algorithmen durch kontrollierte Laborexperimente und systematisches Debugging von Sensor-Setups.</li>',
+
+      'exp-role-pantilt': 'Pan-Tilt-Roboterkopf f\u00FCr Blicksch\u00E4tzung',
+      'exp-bullets-pantilt': '<li><strong>Roboterprogrammierung:</strong> Programmierung eines 2-DOF Pan-Tilt-Robotersensorkopfs mit ROS 2-Knoten f\u00FCr Echtzeitsensorverarbeitung, Koordinatentransformationen und Aktuierungssteuerung.</li><li><strong>Mechanisches Design:</strong> Entwurf und Modellierung von Plattformkomponenten in Fusion 360 f\u00FCr iteratives Prototyping und Teilefertigung.</li><li><strong>Hardware-Montage:</strong> Montage und Konfiguration der 2-DOF-Plattform mit Dynamixel XM430-W350-R-Servoaktuatoren und Integration aller elektrischen Verbindungen.</li><li><strong>Sensorintegration:</strong> Integration der Intel RealSense D455f-Tiefenkamera f\u00FCr die Echtzeit-RGB-D-Datenerfassung im ROS 2-\u00D6kosystem.</li><li><strong>Simulation &amp; Visualisierung:</strong> Simulation und Validierung des Plattformverhaltens in Gazebo; \u00DCberwachung von Gelenkzust\u00E4nden und TF-Transformationen in RViz vor dem physischen Einsatz.</li>',
+
+      'exp-role-ieee': 'Studentischer Zweigvorsitzender \u2013 IEEE',
+      'exp-bullets-ieee': "<li><strong>Interdisziplin\u00E4re F\u00FChrung:</strong> Leitung technischer Symposien und internationaler Konferenzen (ICMACC'22); Koordination zwischen Ingenieurabteilungen.</li><li><strong>Strategische Initiative:</strong> Gr\u00FCndung des IEEE Robotics &amp; Automation Society (RAS)-Kapitels, Verwaltung von Rekrutierung und technischen Roadmaps.</li>",
+
+      'proj-title': 'Projekte',
+      'proj-label-software': 'Software-Robotik',
+      'proj-label-hardware': 'Hardware-Robotik',
+      'proj-label-cad': 'CAD-Modelle',
+      'proj-title-delivery': 'Autonomer Lieferroboter',
+      'proj-desc-delivery': 'Autonomer ROS 2-Lieferroboter mit LiDAR, Gazebo und hindernisorientierter Navigation f\u00FCr simulierte Innenlieferaufgaben.',
+      'proj-title-turtlebot': 'Turtle Bot \u2013 Mehrfach-Agenten-Tracking-Simulation',
+      'proj-desc-turtlebot': 'ROS 2 Turtlesim-Projekt f\u00FCr Multi-Agenten-Tracking mit Broadcaster- und Follower-Knoten und tf-basierter Koordination.',
+      'proj-title-opencv': 'OpenCV Bildverarbeitung',
+      'proj-desc-opencv': 'OpenCV- und Python-Bildverarbeitungs-Workflows f\u00FCr Merkmalsdetektion, Segmentierung und messtechnische Aufgaben.',
+      'proj-title-wheelchair': 'Modularer Rollstuhl (Hardware & Mechanik)',
+      'proj-desc-wheelchair': 'Adaptiver Rollstuhl-Prototyp mit Joystick- und Sprachsteuerungsmodi f\u00FCr progressive Patientenunterst\u00FCtzung.',
+      'proj-title-pantilt': 'Pan-Tilt-Roboterkopf f\u00FCr Blicksch\u00E4tzung',
+      'proj-desc-pantilt': 'Entwicklung eines 2-DOF Pan-Tilt-Robotersensorkopfs f\u00FCr die Blicksch\u00E4tzung mit ROS 2, Fusion 360, Dynamixel-Aktuatoren, Intel RealSense D455f und Validierung in Gazebo und RViz.',
+
+      'cad-title-tplate': 'T-Platte Halterung',
+      'cad-desc-tplate': 'Kompakte Aktuator-Tr\u00E4gerplatte f\u00FCr Robotermontage.',
+      'cad-title-xm430': 'XM430 Halterung',
+      'cad-desc-xm430': 'Halterungskonzept f\u00FCr Dynamixel-Aktuatorintegration.',
+      'cad-title-motorplate': 'Motorplatte Final',
+      'cad-desc-motorplate': 'Fertiggestellte Motortr\u00E4gerplatte f\u00FCr aktuatorseitige Montage und Ausrichtung.',
+      'cad-title-lext': 'L-Verl\u00E4ngerung',
+      'cad-desc-lext': 'L-f\u00F6rmige Verl\u00E4ngerungshalterung f\u00FCr Roboterrahmenverbindung und modulare Montage.',
+      'cad-btn-view': 'CAD ansehen',
+
+      'skills-title': 'F\u00E4higkeiten',
+      'skill-cat-1': 'Robotik & ROS',
+      'skill-cat-2': 'Computer Vision & KI',
+      'skill-cat-3': 'Programmierung',
+
+      'lang-label': 'SPRACHEN',
+      'lang-en': 'Englisch',
+      'lang-en-level': 'B2 \u2014 Fachkundig',
+      'lang-de': 'Deutsch',
+      'lang-de-level': 'B1 \u2014 Mittelstufe',
+      'lang-te': 'Telugu',
+      'lang-te-level': 'Muttersprache',
+      'lang-hi': 'Hindi',
+      'lang-hi-level': 'A1 \u2014 Grundstufe',
+
+      'connect-title': 'Kontakt',
+    }
+  };
+
+  let currentLang = 'en';
+
+  window.setLang = function(lang) {
+    if (!translations[lang]) return;
+    currentLang = lang;
+
+    document.documentElement.lang = lang;
+
+    const t = translations[lang];
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) {
+        el.textContent = t[key];
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (t[key] !== undefined) {
+        el.innerHTML = t[key];
+      }
+    });
+
+    const btnEn = document.getElementById('btn-en');
+    const btnDe = document.getElementById('btn-de');
+    if (btnEn && btnDe) {
+      btnEn.classList.toggle('active', lang === 'en');
+      btnDe.classList.toggle('active', lang === 'de');
+    }
+  };
 });
