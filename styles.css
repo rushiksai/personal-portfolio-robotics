@@ -187,6 +187,7 @@ img {
   border-color: var(--accent);
   color: var(--accent);
 }
+
 /* ---------- END LANGUAGE SWITCHER ---------- */
 
 .nav-toggle {
@@ -1320,58 +1321,176 @@ s-section {
 .skills-section {
   position: relative;
   overflow: hidden;
-  padding: 90px 20px;
-  color: white;
+  padding: 100px 20px;
+  color: #ffffff;
   background:
-    radial-gradient(circle at 20% 30%, rgba(30, 64, 175, 0.5), rgba(7, 12, 40, 1) 70%),
+    radial-gradient(circle at 20% 30%, rgba(30, 64, 175, 0.45), rgba(7, 12, 40, 1) 70%),
     linear-gradient(to right top, #081227, #0b1c43);
+}
+
+.skills-section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 56px;
+  color: #ffffff;
+  letter-spacing: -0.02em;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  align-items: stretch;
 }
 
 .skill-category-card {
   background: linear-gradient(145deg, rgba(13, 25, 56, 0.88), rgba(7, 18, 48, 0.96));
-  border: 1px solid var(--border-soft);
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(96, 165, 250, 0.14);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 22px;
+  min-height: 240px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .skill-category-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--border-strong);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  border-color: rgba(147, 197, 253, 0.3);
 }
 
 .skill-category-card .category-title {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 6px;
+  gap: 14px;
+  margin-bottom: 2px;
 }
 
 .skill-category-card .category-title svg {
-  stroke: var(--accent);
+  stroke: #7db7ff;
   width: 28px;
   height: 28px;
+  flex-shrink: 0;
   fill: none;
 }
 
 .skill-category-card .category-title h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  color: white;
+  color: #ffffff;
   margin: 0;
+  line-height: 1.3;
 }
 
+.tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 10px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.tool-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 0.96rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #eaf2ff;
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.18), rgba(29, 78, 216, 0.16));
+  border: 1px solid rgba(96, 165, 250, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tool-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.24), rgba(37, 99, 235, 0.2));
+  border-color: rgba(147, 197, 253, 0.38);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.18);
+}
+
+.tool-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 80px 16px;
+  }
+
+  .section-title {
+    margin-bottom: 40px;
+  }
+
+  .skills-grid {
+    gap: 20px;
+  }
+
+  .skill-category-card {
+    padding: 22px;
+    border-radius: 18px;
+    gap: 18px;
+    min-height: auto;
+  }
+
+  .skill-category-card .category-title h3 {
+    font-size: 1.12rem;
+  }
+
+  .tool-btn {
+    padding: 9px 14px;
+    font-size: 0.9rem;
+  }
+
+  .tools-list {
+    gap: 10px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .skill-category-card {
+    padding: 20px;
+  }
+
+  .skill-category-card .category-title {
+    gap: 10px;
+  }
+
+  .skill-category-card .category-title svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .tool-btn {
+    width: fit-content;
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.3;
+  }
+}
 /* ---------- CERTIFICATIONS ---------- */
 .certifications-section {
   position: relative;
