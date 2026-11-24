@@ -428,7 +428,7 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
+  width: 38px;.project-card:hover
   height: 38px;
   border-radius: 50%;
   background-color: #0d284a;
