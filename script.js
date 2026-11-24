@@ -2,15 +2,6 @@ function initApp() {
   // =========================================================
   // HELPERS
   // =========================================================
-  function initAOS() {
-    if (typeof AOS !== 'undefined') {
-      AOS.init({
-        duration: 800,
-        once: true,
-        offset: 100
-      });
-    }
-  }
 
   function refreshLucide(root = document) {
     if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
@@ -49,12 +40,17 @@ function initApp() {
     requestAnimationFrame(step);
   }
 
-  // =========================================================
-  // LIBRARIES
-  // =========================================================
-  initAOS();
-  refreshLucide();
+// =========================================================
+// LIBRARIES
+// =========================================================
+AOS.init({
+  duration: 800,
+  once: true,
+  offset: 100,
+  disable: false
+});
 
+refreshLucide();
   // =========================================================
   // SMOOTH SCROLL FOR HASH LINKS
   // =========================================================
